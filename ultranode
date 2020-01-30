@@ -1,0 +1,28 @@
+
+#include<ESP8266WiFi.h>
+
+const int trigpin = 2;
+const int echopin = 0;
+long duration;
+int distance;
+
+
+
+
+void setup(){
+  pinMode(2,OUTPUT);
+  pinMode(0,INPUT);
+  Serial.begin(9600);
+  
+}
+void loop(){
+  digitalWrite(2,LOW);
+  delay(500);
+  digitalWrite(2,HIGH);
+  delay(500);
+  digitalWrite(2,LOW);
+  duration=pulseIn(0,HIGH);
+  distance=duration*0.034/2;
+  Serial.print("Distance: ");
+  Serial.println(distance);
+  }
